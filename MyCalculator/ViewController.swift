@@ -9,14 +9,17 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+  
 
     @IBOutlet weak var displayLabel: UILabel!
     
+      var isFinishedTypingNumber: Bool = true
     
-    
-    @IBAction func culcButtonPressed (_ sender: UIButton){
+    @IBAction func culcButtonPressed (_ sender: UIButton) {
         //What should happen when non-number button is pressed.
         
+        isFinishedTypingNumber = true
     }
     
     
@@ -25,8 +28,16 @@ class ViewController: UIViewController {
         //What should happen when number is entered into the keypad.
         
         if let numValue = sender.currentTitle {
-            displayLabel.text = numValue
+            if isFinishedTypingNumber {
+                displayLabel.text = numValue
+                isFinishedTypingNumber = false
+            } else {
+                displayLabel.text = displayLabel.text! + numValue
+            }
+            
+            
         }
+        
     }
     
     
