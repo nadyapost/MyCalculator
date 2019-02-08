@@ -10,9 +10,29 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var displayLabel: UILabel!
+    
+    
+    
+    @IBAction func culcButtonPressed (_ sender: UIButton){
+        //What should happen when non-number button is pressed.
+        
+    }
+    
+    
+    @IBAction func numButtonPressed(_ sender: UIButton) {
+        
+        //What should happen when number is entered into the keypad.
+        
+        if let numValue = sender.currentTitle {
+            displayLabel.text = numValue
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
     }
 
 
