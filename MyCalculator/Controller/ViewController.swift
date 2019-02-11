@@ -39,10 +39,11 @@ class ViewController: UIViewController {
         if let calcMethod = sender.currentTitle {
             
             
-            guard let result = caclulator.calculate(symbol: calcMethod) else {fatalError("The result of the calculatiomn is nil")}
+            if let result = caclulator.calculate(symbol: calcMethod){
+                    displayValue = result
+            }
             
-        displayValue = result
-            
+
         }
     }
     
@@ -64,7 +65,7 @@ class ViewController: UIViewController {
             
                 if numValue == "." {
                     let isInt = floor(displayValue) == displayValue
-                    if !isInt {
+                    if !isInt || (displayLabel.text?.contains("."))! {
                         return
                     }
                 }
